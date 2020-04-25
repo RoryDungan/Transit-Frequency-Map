@@ -4,9 +4,11 @@ import './index.css'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 
+import createCityService from './services/CityService'
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App cityService={createCityService(fetch)} />
   </React.StrictMode>,
   document.getElementById('root')
 )

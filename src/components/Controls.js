@@ -15,7 +15,9 @@ export default function Controls(props) {
     <div className="Controls">
       <select>
         {cities.map((c) => (
-          <option value={c}>{c}</option>
+          <option value={c} key={c}>
+            {c}
+          </option>
         ))}
       </select>
     </div>
