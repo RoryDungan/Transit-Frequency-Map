@@ -68,16 +68,24 @@ class App extends Component {
     this.setDisplay(this.state.city, this.state.time, newFrequency)
   }
 
+  setCity(newCity) {
+    if (this.state.city === newCity) {
+      return
+    }
+
+    this.setDisplay(newCity, this.state.time, this.state.frequency)
+  }
+
   render() {
     return (
       <div className="App">
         <Controls
           cities={cities}
-          // selectedCity={this.state.city}
-          // setSelectedCity={newCity => this.setSelectedCity(newCity)}
+          selectedCity={this.state.city}
+          setCity={(newCity) => this.setCity(newCity)}
           frequencies={availableFrequencies}
-          setFrequency={(f) => this.setFrequency(f)}
           selectedFrequency={this.state.frequency}
+          setFrequency={(f) => this.setFrequency(f)}
         />
         <MapContainer
           position={cities[this.state.city].position}

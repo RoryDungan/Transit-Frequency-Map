@@ -5,7 +5,10 @@ import './Controls.css'
 export default function Controls(props) {
   return (
     <div className="Controls">
-      <select>
+      <select
+        value={props.selectedCity}
+        onChange={(evt) => props.setCity(evt.target.value)}
+      >
         {Object.keys(props.cities).map((c) => (
           <option value={c} key={c}>
             {props.cities[c].name}
