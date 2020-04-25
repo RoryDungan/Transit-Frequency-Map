@@ -8,6 +8,10 @@ import cities from './cities.json'
 import './App.css'
 
 const defaultCity = 'sydney'
+const defaultTime = 'allday'
+const defaultFrequency = 15
+
+const availableFrequencies = [10, 15, 20]
 
 class App extends Component {
   constructor() {
@@ -15,29 +19,35 @@ class App extends Component {
 
     this.state = {
       city: defaultCity,
-      position: cities[defaultCity],
+      time: defaultTime,
+      frequency: defaultFrequency,
       loading: true,
       geoJson: undefined,
     }
   }
 
   componentDidMount() {
-    this.setCity(defaultCity)
+    this.setDisplay(defaultCity, defaultTime, defaultFrequency)
   }
 
   componentWillUnmount() {
     this.shouldCancel = true
   }
 
-  async setCity(cityId) {
+  async setDisplay(cityId, time, frequency) {
     this.setState({
       ...this.state,
       city: cityId,
-      position: cities[cityId],
+      time: time,
+      frequency: frequency,
       loading: true,
-      // geoJson: undefined,
+      geoJson: undefined,
     })
-    const geoJson = await this.props.cityService.getCityData(cityId)
+    const geoJson = await this.props.cityService.getCityData(
+      cityId,
+      time,
+      frequency
+    )
 
     if (this.shouldCancel) {
       return
@@ -50,14 +60,28 @@ class App extends Component {
     })
   }
 
+  setFrequency(newFrequency) {
+    if (this.state.frequency === newFrequency) {
+      return
+    }
+
+    this.setDisplay(this.state.city, this.state.time, newFrequency)
+  }
+
   render() {
     return (
       <div className="App">
-        <Controls />
+        <Controls
+          cities={cities}
+          // selectedCity={this.state.city}
+          // setSelectedCity={newCity => this.setSelectedCity(newCity)}
+          frequencies={availableFrequencies}
+          setFrequency={(f) => this.setFrequency(f)}
+          selectedFrequency={this.state.frequency}
+        />
         <MapContainer
-          position={this.state.position}
+          position={cities[this.state.city].position}
           geoJson={this.state.geoJson}
-          // geoJson={sydney}
         />
       </div>
     )

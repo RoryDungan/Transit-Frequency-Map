@@ -1,3 +1,34 @@
 {
-  "sydney": [-33.8688, 151.2093]
+  "sydney": {
+    "name": "Sydney",
+    "position": [-33.8688, 151.2093]
+  },
+  "brisbane": {
+    "name": "Brisbane",
+    "position": [-27.4698, 153.0251]
+  },
+  "melbourne": {
+    "name": "Melbourne",
+    "position": [-37.8136, 144.9631]
+  },
+  "perth": {
+    "name": "Perth",
+    "position": [-31.9505, 115.8605]
+  },
+  "canberra": {
+    "name": "Canberra",
+    "position": [-35.2809, 149.13]
+  },
+  "adelaide": {
+    "name": "Adelaide",
+    "position": [-34.9285, 138.6007]
+  },
+  "hobart": {
+    "name": "Hobart",
+    "position": [-42.8821, 147.3272]
+  },
+  "darwin": {
+    "name": "Darwin",
+    "position": [-12.4634, 130.8456]
+  }
 }

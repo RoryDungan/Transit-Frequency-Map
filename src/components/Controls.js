@@ -3,20 +3,23 @@ import React from 'react'
 import './Controls.css'
 
 export default function Controls(props) {
-  const cities = [
-    'Sydney',
-    'Brisbane',
-    'Melbourne',
-    'Canberra',
-    'Gold Coast',
-    'Adelaide',
-  ]
   return (
     <div className="Controls">
       <select>
-        {cities.map((c) => (
+        {Object.keys(props.cities).map((c) => (
           <option value={c} key={c}>
-            {c}
+            {props.cities[c].name}
+          </option>
+        ))}
+      </select>
+
+      <select
+        value={props.selectedFrequency}
+        onChange={(evt) => props.setFrequency(evt.target.value)}
+      >
+        {props.frequencies.map((f) => (
+          <option value={f} key={f}>
+            Every {f} minutes
           </option>
         ))}
       </select>
