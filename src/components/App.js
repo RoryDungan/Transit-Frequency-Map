@@ -13,6 +13,11 @@ const defaultFrequency = 15
 
 const availableFrequencies = [10, 15, 20]
 
+const availableTimes = {
+  allday: 'All day',
+  night: 'Night',
+}
+
 class App extends Component {
   constructor() {
     super()
@@ -60,6 +65,14 @@ class App extends Component {
     })
   }
 
+  setCity(newCity) {
+    if (this.state.city === newCity) {
+      return
+    }
+
+    this.setDisplay(newCity, this.state.time, this.state.frequency)
+  }
+
   setFrequency(newFrequency) {
     if (this.state.frequency === newFrequency) {
       return
@@ -68,12 +81,12 @@ class App extends Component {
     this.setDisplay(this.state.city, this.state.time, newFrequency)
   }
 
-  setCity(newCity) {
-    if (this.state.city === newCity) {
+  setTime(newTime) {
+    if (this.state.time === newTime) {
       return
     }
 
-    this.setDisplay(newCity, this.state.time, this.state.frequency)
+    this.setDisplay(this.state.city, newTime, this.state.frequency)
   }
 
   render() {
@@ -86,6 +99,9 @@ class App extends Component {
           frequencies={availableFrequencies}
           selectedFrequency={this.state.frequency}
           setFrequency={(f) => this.setFrequency(f)}
+          times={availableTimes}
+          selectedTime={this.state.time}
+          setTime={(newTime) => this.setTime(newTime)}
           disabled={this.state.loading}
         />
         <MapContainer

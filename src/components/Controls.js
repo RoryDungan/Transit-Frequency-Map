@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './Controls.css'
-import { Select, Space } from 'antd'
+import { Select, Space, Radio } from 'antd'
 
 const { Option } = Select
 
@@ -35,6 +35,18 @@ export default function Controls(props) {
             </Option>
           ))}
         </Select>
+
+        <Radio.Group
+          onChange={(evt) => props.setTime(evt.target.value)}
+          value={props.selectedTime}
+          disabled={props.disabled}
+        >
+          {Object.keys(props.times).map((t) => (
+            <Radio.Button key={t} value={t}>
+              {props.times[t]}
+            </Radio.Button>
+          ))}
+        </Radio.Group>
       </Space>
     </div>
   )
