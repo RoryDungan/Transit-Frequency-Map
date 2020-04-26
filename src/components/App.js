@@ -90,6 +90,7 @@ class App extends Component {
         <MapContainer
           position={cities[this.state.city].position}
           geoJson={this.state.geoJson}
+          loading={this.state.loading}
         />
       </div>
     )

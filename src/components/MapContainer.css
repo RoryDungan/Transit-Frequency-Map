@@ -1,5 +1,14 @@
 .Map {
-  /* flex: 1 1 auto; */
-  width: 500px;
-  height: 500px;
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.LoadingSpinner {
+  position: absolute;
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
