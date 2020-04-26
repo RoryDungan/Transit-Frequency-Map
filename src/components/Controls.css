@@ -1,3 +1,14 @@
 .Controls {
   flex: 0 1 auto;
+  margin: 8px;
+}
+
+.CitySelect {
+  width: 120px;
+  /* margin: 8px !important; */
+}
+
+.FrequencySelect {
+  width: 160px;
+  /* margin: 8px !important; */
 }

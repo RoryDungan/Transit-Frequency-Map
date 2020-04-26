@@ -1,31 +1,38 @@
 import React from 'react'
 
 import './Controls.css'
+import { Select, Space } from 'antd'
+
+const { Option } = Select
 
 export default function Controls(props) {
   return (
     <div className="Controls">
-      <select
-        value={props.selectedCity}
-        onChange={(evt) => props.setCity(evt.target.value)}
-      >
-        {Object.keys(props.cities).map((c) => (
-          <option value={c} key={c}>
-            {props.cities[c].name}
-          </option>
-        ))}
-      </select>
+      <Space>
+        <Select
+          className="CitySelect"
+          value={props.selectedCity}
+          onChange={(evt) => props.setCity(evt)}
+        >
+          {Object.keys(props.cities).map((c) => (
+            <Option value={c} key={c}>
+              {props.cities[c].name}
+            </Option>
+          ))}
+        </Select>
 
-      <select
-        value={props.selectedFrequency}
-        onChange={(evt) => props.setFrequency(evt.target.value)}
-      >
-        {props.frequencies.map((f) => (
-          <option value={f} key={f}>
-            Every {f} minutes
-          </option>
-        ))}
-      </select>
+        <Select
+          className="FrequencySelect"
+          value={props.selectedFrequency}
+          onChange={(evt) => props.setFrequency(evt)}
+        >
+          {props.frequencies.map((f) => (
+            <Option value={f} key={f}>
+              Every {f} minutes
+            </Option>
+          ))}
+        </Select>
+      </Space>
     </div>
   )
 }
