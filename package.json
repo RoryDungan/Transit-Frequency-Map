@@ -2,7 +2,7 @@
   "name": "transit-frequency-map",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://rorydungan.github.io/Transit-Frequency-Map/",
+  "homepage": ".",
   "license": "MIT",
   "dependencies": {
     "@msgpack/msgpack": "^1.12.1",
