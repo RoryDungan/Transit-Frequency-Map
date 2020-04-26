@@ -86,6 +86,7 @@ class App extends Component {
           frequencies={availableFrequencies}
           selectedFrequency={this.state.frequency}
           setFrequency={(f) => this.setFrequency(f)}
+          disabled={this.state.loading}
         />
         <MapContainer
           position={cities[this.state.city].position}

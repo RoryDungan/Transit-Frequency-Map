@@ -11,7 +11,9 @@ export default function Controls(props) {
       <Space>
         <Select
           className="CitySelect"
+          showSearch
           value={props.selectedCity}
+          disabled={props.disabled}
           onChange={(evt) => props.setCity(evt)}
         >
           {Object.keys(props.cities).map((c) => (
@@ -24,6 +26,7 @@ export default function Controls(props) {
         <Select
           className="FrequencySelect"
           value={props.selectedFrequency}
+          disabled={props.disabled}
           onChange={(evt) => props.setFrequency(evt)}
         >
           {props.frequencies.map((f) => (
