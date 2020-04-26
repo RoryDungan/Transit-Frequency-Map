@@ -22,13 +22,5 @@
   "adelaide": {
     "name": "Adelaide",
     "position": [-34.9285, 138.6007]
-  },
-  "hobart": {
-    "name": "Hobart",
-    "position": [-42.8821, 147.3272]
-  },
-  "darwin": {
-    "name": "Darwin",
-    "position": [-12.4634, 130.8456]
   }
 }
