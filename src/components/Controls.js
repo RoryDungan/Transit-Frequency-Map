@@ -1,7 +1,8 @@
 import React from 'react'
 
 import './Controls.css'
-import { Select, Space, Radio } from 'antd'
+import { Select, Space, Radio, Tooltip, Button } from 'antd'
+import { InfoOutlined } from '@ant-design/icons'
 
 const { Option } = Select
 
@@ -47,6 +48,16 @@ export default function Controls(props) {
             </Radio.Button>
           ))}
         </Radio.Group>
+
+        <div style={{ flex: '1 1 auto' }} />
+
+        <Tooltip title="About">
+          <Button
+            shape="circle"
+            icon={<InfoOutlined />}
+            onClick={() => props.showInfo()}
+          />
+        </Tooltip>
       </Space>
     </div>
   )

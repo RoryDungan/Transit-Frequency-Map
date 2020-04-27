@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Button, Modal } from 'antd'
 
 import MapContainer from './MapContainer'
 import Controls from './Controls'
@@ -28,6 +29,7 @@ class App extends Component {
       frequency: defaultFrequency,
       loading: true,
       geoJson: undefined,
+      introPopupVisible: true,
     }
   }
 
@@ -121,6 +123,14 @@ class App extends Component {
     this.setDisplay(this.state.city, newTime, this.state.frequency)
   }
 
+  setIntroPopupVisible(visible) {
+    if (this.state.introPopupVisible === visible) {
+      return
+    }
+
+    this.setState({ ...this.state, introPopupVisible: visible })
+  }
+
   render() {
     return (
       <div className="App">
@@ -135,12 +145,29 @@ class App extends Component {
           selectedTime={this.state.time}
           setTime={(newTime) => this.setTime(newTime)}
           disabled={this.state.loading}
+          showInfo={() => this.setIntroPopupVisible(true)}
         />
         <MapContainer
           position={cities[this.state.city].position}
           geoJson={this.state.geoJson}
           loading={this.state.loading}
         />
+
+        <Modal
+          title="Transit Frequency Map"
+          visible={this.state.introPopupVisible}
+          onCancel={() => this.setIntroPopupVisible(false)}
+          footer={[
+            <Button
+              key="submit"
+              onClick={() => this.setIntroPopupVisible(false)}
+            >
+              Okay
+            </Button>,
+          ]}
+        >
+          <p>Hello!</p>
+        </Modal>
       </div>
     )
   }
