@@ -14,8 +14,8 @@ const defaultFrequency = 15
 const availableFrequencies = [10, 15, 20]
 
 const availableTimes = {
-  allday: 'All day',
-  night: 'Night',
+  allday: '7 AM to 10 PM',
+  night: '10 PM to 12AM',
 }
 
 class App extends Component {
