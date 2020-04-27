@@ -39,6 +39,18 @@ class App extends Component {
     this.shouldCancel = true
   }
 
+  componentDidUpdate(prevProps) {
+    if (
+      !this.props.match.params.city ||
+      this.props.match.params.city === prevProps.match.params.city ||
+      this.props.match.params.city === this.state.city
+    ) {
+      return
+    }
+
+    this.setCity(this.props.match.params.city)
+  }
+
   async setDisplay(cityId, time, frequency) {
     this.setState({
       ...this.state,
@@ -63,6 +75,8 @@ class App extends Component {
       loading: false,
       geoJson,
     })
+
+    this.props.history.push(cityId)
   }
 
   setCity(newCity) {

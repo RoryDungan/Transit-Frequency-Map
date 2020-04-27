@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './components/App'
+import Router from './components/Router'
 import * as serviceWorker from './serviceWorker'
 
 import createCityService from './services/CityService'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App cityService={createCityService(fetch)} />
+    <Router cityService={createCityService(fetch)} />
   </React.StrictMode>,
   document.getElementById('root')
 )
