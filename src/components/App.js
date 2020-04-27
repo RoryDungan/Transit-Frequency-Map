@@ -41,14 +41,20 @@ class App extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      !this.props.match.params.city ||
-      this.props.match.params.city === prevProps.match.params.city ||
-      this.props.match.params.city === this.state.city
+      this.props.match.params.city &&
+      this.props.match.params.city !== prevProps.match.params.city &&
+      this.props.match.params.city !== this.state.city
     ) {
-      return
+      this.setCity(this.props.match.params.city)
     }
 
-    this.setCity(this.props.match.params.city)
+    if (
+      this.props.match.params.time &&
+      this.props.match.params.time !== prevProps.match.params.time &&
+      this.props.match.params.time !== this.state.time
+    ) {
+      this.setTime(this.props.match.params.time)
+    }
   }
 
   async setDisplay(cityId, time, frequency) {
@@ -76,7 +82,7 @@ class App extends Component {
       geoJson,
     })
 
-    this.props.history.push(cityId)
+    this.props.history.push(`/${cityId}/${time}`)
   }
 
   setCity(newCity) {
