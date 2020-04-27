@@ -32,7 +32,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setDisplay(defaultCity, defaultTime, defaultFrequency)
+    this.setDisplay(
+      this.props.match.params.city || defaultCity,
+      this.props.match.params.time || defaultTime,
+      parseInt(this.props.match.params.frequency) || defaultFrequency
+    )
   }
 
   componentWillUnmount() {

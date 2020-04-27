@@ -9,12 +9,14 @@ import { Spin } from 'antd'
 export default function MapContainer(props) {
   return (
     <div className="Map">
-      <Map center={props.position} style={{ flex: '1 1 auto' }} zoom={12}>
+      <Map style={{ flex: '1 1 auto' }} zoom={12} center={props.position}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {props.geoJson ? <GeoJSON data={props.geoJson} /> : undefined}
+        {props.geoJson ? (
+          <GeoJSON className="GeoJSON" data={props.geoJson} />
+        ) : undefined}
       </Map>
 
       {props.loading ? (
