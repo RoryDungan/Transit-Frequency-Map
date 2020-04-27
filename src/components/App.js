@@ -55,6 +55,14 @@ class App extends Component {
     ) {
       this.setTime(this.props.match.params.time)
     }
+
+    if (
+      this.props.match.params.frequency &&
+      this.props.match.params.frequency !== prevProps.match.params.frequency &&
+      this.props.match.params.frequency !== this.state.frequency
+    ) {
+      this.setFrequency(parseInt(this.props.match.params.frequency))
+    }
   }
 
   async setDisplay(cityId, time, frequency) {
@@ -82,7 +90,7 @@ class App extends Component {
       geoJson,
     })
 
-    this.props.history.push(`/${cityId}/${time}`)
+    this.props.history.push(`/${cityId}/${time}/${frequency}`)
   }
 
   setCity(newCity) {

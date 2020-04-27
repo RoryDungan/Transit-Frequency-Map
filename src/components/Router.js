@@ -6,7 +6,7 @@ export default function Router(props) {
   return (
     <HashRouter>
       <Route
-        path="/:city?/:time?"
+        path="/:city?/:time?/:frequency?"
         render={(routeProps) => (
           <App cityService={props.cityService} {...routeProps} />
         )}
