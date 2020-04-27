@@ -29,7 +29,7 @@ class App extends Component {
       frequency: defaultFrequency,
       loading: true,
       geoJson: undefined,
-      introPopupVisible: true,
+      introPopupVisible: !localStorage.getItem('autoHideIntro'),
     }
   }
 
@@ -128,6 +128,8 @@ class App extends Component {
       return
     }
 
+    this.props.localStorage.setItem('autoHideIntro', true)
+
     this.setState({ ...this.state, introPopupVisible: visible })
   }
 
@@ -160,13 +162,32 @@ class App extends Component {
           footer={[
             <Button
               key="submit"
+              type="primary"
               onClick={() => this.setIntroPopupVisible(false)}
             >
-              Okay
+              Ok
             </Button>,
           ]}
         >
-          <p>Hello!</p>
+          <p>
+            This site maps access to frequent public transport across Australian
+            cities. Shaded areas represent places within an 800m radius of a
+            transit stop with frequent service all throughout the selected time
+            period.
+          </p>
+          <p>
+            Built by{' '}
+            <a href="https://www.rorydungan.com/" target="_blank">
+              Rory Dungan
+            </a>
+            , using{' '}
+            <a href="https://www.openstreetmap.org/" target="_blank">
+              OpenStreetMap
+            </a>{' '}
+            with GTFS data from{' '}
+            <a href="https://transitfeeds.com/">TransitFeeds</a> and individual
+            transit agencies.
+          </p>
         </Modal>
       </div>
     )

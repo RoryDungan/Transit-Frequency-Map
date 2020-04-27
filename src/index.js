@@ -8,7 +8,10 @@ import createCityService from './services/CityService'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router cityService={createCityService(fetch)} />
+    <Router
+      cityService={createCityService(fetch)}
+      localStorage={window.localStorage}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 )

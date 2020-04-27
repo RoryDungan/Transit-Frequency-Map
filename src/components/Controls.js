@@ -49,8 +49,6 @@ export default function Controls(props) {
           ))}
         </Radio.Group>
 
-        <div style={{ flex: '1 1 auto' }} />
-
         <Tooltip title="About">
           <Button
             shape="circle"

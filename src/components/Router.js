@@ -8,7 +8,11 @@ export default function Router(props) {
       <Route
         path="/:city?/:time?/:frequency?"
         render={(routeProps) => (
-          <App cityService={props.cityService} {...routeProps} />
+          <App
+            cityService={props.cityService}
+            localStorage={props.localStorage}
+            {...routeProps}
+          />
         )}
       />
     </HashRouter>
