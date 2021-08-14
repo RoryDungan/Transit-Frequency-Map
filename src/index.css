@@ -22,3 +22,8 @@ code {
   display: flex;
   flex-flow: column;
 }
+
+.leaflet-container {
+  width: 100wh;
+  height: 100vh;
+}
