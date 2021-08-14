@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Map, TileLayer, GeoJSON } from 'react-leaflet'
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet'
 
 import './MapContainer.css'
 import 'leaflet/dist/leaflet.css'
@@ -8,10 +8,10 @@ import { Layout, Spin } from 'antd'
 
 const { Content } = Layout
 
-export default function MapContainer(props) {
+export default function MyMapContainer(props) {
   return (
     <Content style={{display: 'flex'}}>
-      <Map className="Map" zoom={12} center={props.position}>
+      <MapContainer className="Map" zoom={12} center={props.position}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -19,7 +19,7 @@ export default function MapContainer(props) {
         {props.geoJson ? (
           <GeoJSON className="GeoJSON" data={props.geoJson} />
         ) : undefined}
-      </Map>
+      </MapContainer>
 
       {props.loading ? (
         <div className="LoadingSpinner">
