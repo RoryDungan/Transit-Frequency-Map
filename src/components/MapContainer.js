@@ -4,12 +4,14 @@ import { Map, TileLayer, GeoJSON } from 'react-leaflet'
 
 import './MapContainer.css'
 import 'leaflet/dist/leaflet.css'
-import { Spin } from 'antd'
+import { Layout, Spin } from 'antd'
+
+const { Content } = Layout
 
 export default function MapContainer(props) {
   return (
-    <div className="Map">
-      <Map style={{ flex: '1 1 auto' }} zoom={12} center={props.position}>
+    <Content style={{display: 'flex'}}>
+      <Map className="Map" zoom={12} center={props.position}>
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -24,6 +26,6 @@ export default function MapContainer(props) {
           <Spin size="large" />
         </div>
       ) : undefined}
-    </div>
+    </Content>
   )
 }

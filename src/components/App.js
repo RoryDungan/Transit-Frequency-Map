@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { Button, Modal } from 'antd'
+import { Button, Layout, Modal } from 'antd'
 
-import MapContainer from './MapContainer'
+import MyMapContainer from './MapContainer'
 import Controls from './Controls'
 
 import cities from './cities.json'
 
 import './App.css'
+const { Sider } = Layout;
 
 const defaultCity = 'sydney'
 const defaultTime = 'allday'
@@ -135,26 +136,34 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Controls
-          cities={cities}
-          selectedCity={this.state.city}
-          setCity={(newCity) => this.setCity(newCity)}
-          frequencies={availableFrequencies}
-          selectedFrequency={this.state.frequency}
-          setFrequency={(f) => this.setFrequency(f)}
-          times={availableTimes}
-          selectedTime={this.state.time}
-          setTime={(newTime) => this.setTime(newTime)}
-          disabled={this.state.loading}
-          showInfo={() => this.setIntroPopupVisible(true)}
-        />
-        <MapContainer
-          position={cities[this.state.city].position}
-          geoJson={this.state.geoJson}
-          loading={this.state.loading}
-        />
-
+      <Layout>
+        <Sider
+          breakpoint="lg"
+          collapsedWidth="0"
+          theme="light"
+          style={{display: 'flex', flex: '1 1 auto'}}
+        >
+          <Controls
+            cities={cities}
+            selectedCity={this.state.city}
+            setCity={(newCity) => this.setCity(newCity)}
+            frequencies={availableFrequencies}
+            selectedFrequency={this.state.frequency}
+            setFrequency={(f) => this.setFrequency(f)}
+            times={availableTimes}
+            selectedTime={this.state.time}
+            setTime={(newTime) => this.setTime(newTime)}
+            disabled={this.state.loading}
+            showInfo={() => this.setIntroPopupVisible(true)}
+          />
+        </Sider>
+        <Layout>
+          <MyMapContainer
+            position={cities[this.state.city].position}
+            geoJson={this.state.geoJson}
+            loading={this.state.loading}
+          />
+        </Layout>
         <Modal
           title="Transit Frequency Map"
           visible={this.state.introPopupVisible}
@@ -189,7 +198,7 @@ class App extends Component {
             transit agencies.
           </p>
         </Modal>
-      </div>
+      </Layout>
     )
   }
 }

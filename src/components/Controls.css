@@ -1,6 +1,7 @@
 .Controls {
-  flex: 0 1 auto;
-  margin: 8px;
+  margin: 16px;
+  display: flex;
+  flex: 1 1 auto;
 }
 
 .CitySelect {
