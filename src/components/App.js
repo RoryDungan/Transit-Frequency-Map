@@ -186,11 +186,11 @@ class App extends Component {
           </p>
           <p>
             Built by{' '}
-            <a href="https://www.rorydungan.com/" target="_blank">
+            <a href="https://www.rorydungan.com/" target="_blank" rel="noopener noreferrer">
               Rory Dungan
             </a>
             , using{' '}
-            <a href="https://www.openstreetmap.org/" target="_blank">
+            <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">
               OpenStreetMap
             </a>{' '}
             with GTFS data from{' '}
