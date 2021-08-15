@@ -22,5 +22,9 @@
   "sydney": {
     "name": "Sydney",
     "position": [-33.8688, 151.2093]
+  },
+  "greater-toronto": {
+    "name": "Toronto",
+    "position": [43.741667, -79.373333]
   }
 }
