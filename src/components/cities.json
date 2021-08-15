@@ -26,5 +26,13 @@
   "greater-toronto": {
     "name": "Toronto",
     "position": [43.741667, -79.373333]
+  },
+  "greater-montreal": {
+    "name": "Montréal",
+    "position": [45.508889, -73.554167]
+  },
+  "vancouver": {
+    "name": "Vancouver",
+    "position": [49.260833, -123.113889]
   }
 }
