@@ -1,38 +1,47 @@
 {
   "adelaide": {
     "name": "Adelaide",
-    "position": [-34.9285, 138.6007]
+    "position": [-34.9285, 138.6007],
+    "flag": "🇦🇺"
   },
   "brisbane": {
     "name": "Brisbane",
-    "position": [-27.4698, 153.0251]
+    "position": [-27.4698, 153.0251],
+    "flag": "🇦🇺"
   },
   "canberra": {
     "name": "Canberra",
-    "position": [-35.2809, 149.13]
+    "position": [-35.2809, 149.13],
+    "flag": "🇦🇺"
   },
   "melbourne": {
     "name": "Melbourne",
-    "position": [-37.8136, 144.9631]
+    "position": [-37.8136, 144.9631],
+    "flag": "🇦🇺"
   },
   "perth": {
     "name": "Perth",
-    "position": [-31.9505, 115.8605]
+    "position": [-31.9505, 115.8605],
+    "flag": "🇦🇺"
   },
   "sydney": {
     "name": "Sydney",
-    "position": [-33.8688, 151.2093]
+    "position": [-33.8688, 151.2093],
+    "flag": "🇦🇺"
   },
   "greater-toronto": {
     "name": "Toronto",
-    "position": [43.741667, -79.373333]
+    "position": [43.741667, -79.373333],
+    "flag": "🇨🇦"
   },
   "greater-montreal": {
     "name": "Montréal",
-    "position": [45.508889, -73.554167]
+    "position": [45.508889, -73.554167],
+    "flag": "🇨🇦"
   },
   "vancouver": {
     "name": "Vancouver",
-    "position": [49.260833, -123.113889]
+    "position": [49.260833, -123.113889],
+    "flag": "🇨🇦"
   }
 }

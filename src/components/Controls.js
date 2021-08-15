@@ -17,11 +17,16 @@ export default function Controls(props) {
         onChange={(evt) => props.setCity(evt)}
         style={{width: '100%'}}
       >
-        {Object.keys(props.cities).map((c) => (
-          <Option value={c} key={c}>
-            {props.cities[c].name}
-          </Option>
-        ))}
+        {Object.keys(props.cities)
+          .sort((a, b) => props.cities[a].name > props.cities[b].name)
+          .map((c) => (
+            <Option value={c} key={c}>
+              <span role="img" style={{marginRight: '6px'}}>
+                {props.cities[c].flag}
+              </span>
+              {props.cities[c].name}
+            </Option>
+          ))}
       </Select>
 
       <Select
